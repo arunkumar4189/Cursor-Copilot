@@ -1,0 +1,22 @@
+{
+  "name": "Cursor Copilot",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "user": "ubuntu",
+  "install": "./.cursor/scripts/install.sh",
+  "start": "./.cursor/scripts/start.sh",
+  "ports": [
+    {
+      "name": "backend-api",
+      "port": 8000
+    }
+  ],
+  "terminals": [
+    {
+      "name": "backend",
+      "command": "backend/.venv/bin/uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload",
+      "description": "FastAPI backend development server for the trade account manager API."
+    }
+  ]
+}
